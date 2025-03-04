@@ -76,6 +76,14 @@ public class Lexer {
     public static ArrayList<ArrayList<String>> Parser(String input){
 
         ArrayList<String> lista = Tokenizer(input); //con esta lista se empieza a trabajar el parseo
+        if (!Verificar(input)) {
+            throw new IllegalArgumentException("Error: No tiene el mismo numero de parentesis de apertura y cierre.");
+        }
+
+        ArrayList<String> tokens = Tokenizer(input);
+        if (tokens == null || tokens.isEmpty()) {
+            throw new IllegalArgumentException("Error: No se encontraron tokens válidos.");
+        }
 
     return null;
 
