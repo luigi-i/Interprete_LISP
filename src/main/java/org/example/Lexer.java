@@ -71,4 +71,13 @@ public class Lexer {
         }
         return null;
     }
+
+
+    public static ArrayList<ArrayList<String>> Parser(String input){
+
+        ArrayList<String> lista = Tokenizer(input); //con esta lista se empieza a trabajar el parseo
+
+    return null;
+
+    }
 }
