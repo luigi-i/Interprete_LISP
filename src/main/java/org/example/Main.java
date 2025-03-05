@@ -11,9 +11,9 @@ public class Main {
 
         ArrayList<String> lista = Lexer.Tokenizer(input); // solo tokenizer
         System.out.println(lista);
-
-        ArrayList<ArrayList<String>> listaparseada = Lexer.Parser(input); //parser (no es para esta entrega)
-        System.out.println(listaparseada);
+//
+//        ArrayList<ArrayList<String>> listaparseada = Lexer.Parser(input); //parser (no es para esta entrega)
+//        System.out.println(listaparseada);
 
 
 
