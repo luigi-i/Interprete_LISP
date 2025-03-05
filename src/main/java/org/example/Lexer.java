@@ -13,8 +13,12 @@ public class Lexer {
             else if (input.charAt(i) == ')'){ pc++;}//agrega 1 por cada ( ) que encuentre
         }
 
-        if (pa == pc){return true;} //si son iguales retorna true
-        else{return false;}
+        if (pa == pc){
+            System.out.println("Expresion correcta");
+            return true;} //si son iguales retorna true
+        else{
+            System.out.println("Expresion incorrecta");
+            return false;}
     }
 
     public static ArrayList<String> Tokenizer(String input){
