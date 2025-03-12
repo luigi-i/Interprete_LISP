@@ -7,35 +7,39 @@ public abstract class Node {
 }
 
 class AtomNode extends Node {
-    private final String value;
+    private String valor;
 
-    public AtomNode(String value) {
-        this.value = value;
+    public AtomNode(String valor) {
+        this.valor = valor;
     }
 
-    public String getValue() {
-        return value;
+    public String getValor() {
+        return valor;
     }
 
     @Override
     public String toString() {
-        return value;
+        return valor;
     }
 }
 
 class ListNode extends Node {
-    private final List<Node> elements = new ArrayList<>();
+    private List<Node> elementos; // Sin final
 
-    public void add(Node node) {
-        elements.add(node);
+    public ListNode() {
+        this.elementos = new ArrayList<>();
     }
 
-    public List<Node> getElements() {
-        return elements;
+    public void add(Node node) {
+        elementos.add(node);
+    }
+
+    public List<Node> getElementos() {
+        return elementos;
     }
 
     @Override
     public String toString() {
-        return elements.toString();
+        return elementos.toString();
     }
 }
