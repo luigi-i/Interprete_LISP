@@ -11,6 +11,10 @@ public class Main {
     // (define (factorial n) (if (= n 0) 1 (* n (factorial (- n 1)))))
     //Fibonacci:
     // (define (fibonacci n) (if (= n 0) 0 (if (= n 1) 1 (+ (fibonacci (- n 1)) (fibonacci (- n 2))))))
+    //MALAN
+    // (define (MALAN M N) (if  (= N 0) 1  (* M (MALAN M (- N 1)))))
+
+
 
     public static void main(String[] args) {
         //Creacion del entorno
