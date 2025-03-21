@@ -132,10 +132,10 @@ public class Evaluador {
     private static Node definirFuncion(List<Node> elementos, Entorno env) {
         // La estructura de define es: (define (nombre param1 param2 ...) cuerpo)
         if (elementos.size() < 2) {
-            throw new RuntimeException("Expresión 'define' mal formada.");
+            throw new RuntimeException("Expresión 'define' mal formada, elementos insuficientes");
         }
 
-        // El primer elemento es la lista de nombre y parámetros
+        // El primer elemento es la lista de nombre y parámetros de la funcion
         Node nombreYParametros = elementos.get(0);
         if (!(nombreYParametros instanceof ListNode)) {
             throw new RuntimeException("La definición de función debe tener una lista de nombre y parámetros.");
@@ -146,12 +146,12 @@ public class Evaluador {
 
         // El nombre de la función es el primer elemento de la lista
         if (elementosNombreYParametros.isEmpty()) {
-            throw new RuntimeException("La definición de función debe incluir un nombre.");
+            throw new RuntimeException("La definición de función debe tener un nombre y parametros.");
         }
 
         Node nombreFuncionNode = elementosNombreYParametros.get(0);
         if (!(nombreFuncionNode instanceof AtomNode)) {
-            throw new RuntimeException("El nombre de la función debe ser un átomo.");
+            throw new RuntimeException("El nombre de la función debe de ser un AtomNode.");
         }
 
         String nombreFuncion = ((AtomNode) nombreFuncionNode).getValor();
@@ -189,20 +189,21 @@ public class Evaluador {
 
         // Devolver el valor correspondiente
         if (esVerdadero) {
-            return eval(elementos.get(1), env);  // valor-si-verdadero
+            return eval(elementos.get(1), env);  // valor si verdadero
         } else {
-            return eval(elementos.get(2), env);  // valor-si-falso
+            return eval(elementos.get(2), env);  // valor si falso
         }
     }
 
-    // Método auxiliar para determinar si un nodo es "verdadero"
+    // Método auxiliar para determinar si un nodo es verdadero
     private static boolean esVerdadero(Node nodo) {
         if (nodo instanceof AtomNode) {
             String valor = ((AtomNode) nodo).getValor();
-            // En LISP, cualquier valor distinto de "false" o "0" se considera verdadero
+            // cualquier valor distinto de false o "0 se considera verdadero
             return !valor.equalsIgnoreCase("false") && !valor.equals("0");
         }
         return true;  // Los nodos que no son átomos se consideran verdaderos
+        //despues terminan en eval= donde ya habra un boolean para evaluar aqui
     }
 
     private static Node evalIgual(ListNode list, Entorno env) {

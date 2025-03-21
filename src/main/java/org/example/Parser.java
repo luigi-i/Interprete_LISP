@@ -17,14 +17,14 @@ public class Parser {
             return indice < tokens.size();
         }
 
-        public String next() {
+        public String next() {//avanza en la lista, en la practica consume el node que estaba ahi
             if (!hasNext()) {
                 throw new IllegalArgumentException("Error: No hay más tokens.");
             }
             return tokens.get(indice++);
         }
 
-        public String peek() {
+        public String peek() {//Verifica el siguiente elemento sin avanzar
             if (!hasNext()) {
                 throw new IllegalArgumentException("Error: No hay más tokens.");
             }
@@ -60,23 +60,23 @@ public class Parser {
             // Inicia una nueva lista
             ListNode expression = new ListNode();
 
-            // Procesa tokens hasta encontrar el paréntesis de cierre
+            // Procesa tokens y los guarda en la NodeList actual hasta encontrar el paréntesis de cierre
             while (iterador.hasNext() && !iterador.peek().equals(")")) {
                 expression.add(parseExpression(iterador));
             }
 
-            // Consume el paréntesis de cierre
+            // Consume el paréntesis de cierre y cierra la lista
             if (iterador.hasNext() && iterador.peek().equals(")")) {
                 iterador.next();  // Consume ")"
-            } else {
+            } else { //Si no se encontraron parentesis de cierre
                 throw new IllegalArgumentException("Error: Falta paréntesis de cierre.");
             }
 
             return expression;
-        } else if (token.equals(")")) {
-            throw new IllegalArgumentException("Error: Paréntesis de cierre inesperado.");
+        } else if (token.equals(")")) { //Si se encuentra un parentesis de cierre al principio
+            throw new IllegalArgumentException("Error: Paréntesis de cierre inesperado, las expresiones empiezan en '(' .");
         } else {
-            // Es un átomo (número, variable, operador, etc.)
+            // la expresion solo tenia un atomNode
             return new AtomNode(token);
         }
     }

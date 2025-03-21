@@ -6,6 +6,12 @@ import java.util.Scanner;
 
 public class Main {
 
+    //Funciones de regalo:
+    //Factorial:
+    // (define (factorial n) (if (= n 0) 1 (* n (factorial (- n 1)))))
+    //Fibonacci:
+    // (define (fibonacci n) (if (= n 0) 0 (if (= n 1) 1 (+ (fibonacci (- n 1)) (fibonacci (- n 2))))))
+
     public static void main(String[] args) {
         //Creacion del entorno
         Entorno globalEnv = new Entorno(null);
