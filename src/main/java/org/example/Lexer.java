@@ -57,7 +57,7 @@ public class Lexer {
                 if ( input.charAt(i) == ' '  ){ i++; //se salta la posicion si hay un espacio
                     System.out.println(lista);}
 
-                if(input.charAt(i) == '+' || input.charAt(i) == '-' || input.charAt(i) == '*' || input.charAt(i) == '/'){
+                if(input.charAt(i) == '+' || input.charAt(i) == '-' || input.charAt(i) == '*' || input.charAt(i) == '/' || input.charAt(i) == '='){
                     lista.add(Character.toString(input.charAt(i)));
                     i++; //agrega un signo a la lista si lo encuentra
                 }
