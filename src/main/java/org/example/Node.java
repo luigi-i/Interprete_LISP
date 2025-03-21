@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Node {
-        public abstract String toString();
+    public abstract String toString();
 }
 
 class AtomNode extends Node {

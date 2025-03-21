@@ -44,7 +44,7 @@ public class Lexer {
                     i++; //revisa i+1
                 }
                 if (check){lista.add(add); check = false; add = "";
-                    System.out.println(lista);}//todos los sistem.out solo son para verificar si algo falla ver en que paso fue
+                    ;}//todos los sistem.out solo son para verificar si algo falla ver en que paso fue
 
                 while (Character.isAlphabetic(input.charAt(i) ) && i < input.length()-1){//revisa si i es letra
                     add += input.charAt(i);
@@ -52,24 +52,23 @@ public class Lexer {
                     i++;
                 }
                 if (check){lista.add(add); check = false; add = "";
-                    System.out.println(lista);}
+                    ;}
 
                 if ( input.charAt(i) == ' '  ){ i++; //se salta la posicion si hay un espacio
                     System.out.println(lista);}
 
                 if(input.charAt(i) == '+' || input.charAt(i) == '-' || input.charAt(i) == '*' || input.charAt(i) == '/'){
                     lista.add(Character.toString(input.charAt(i)));
-                    System.out.println(lista);
                     i++; //agrega un signo a la lista si lo encuentra
                 }
 
                 if (input.charAt(i) == ')' || input.charAt(i) == '('){//si es ( o ) solo los agrega a la lista
                     lista.add(Character.toString(input.charAt(i)));
                     i++;
-                    System.out.println(lista);
 
                 }
             }
+
 
             return lista;
         }

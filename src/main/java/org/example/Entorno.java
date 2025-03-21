@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Entorno {
     private Map<String, Integer> variables = new HashMap<>(); // Variables (nombre -> valor)
-    private Map<String, DefFuncion> funciones = new HashMap<>(); // Funciones (nombre -> definición)
+    private Map<String, FunctionDef> funciones = new HashMap<>(); // Funciones (nombre -> definición)
     private Entorno parent; // Para manejar ámbitos anidados
 
     public Entorno(Entorno parent) {  //constructor
@@ -28,12 +28,12 @@ public class Entorno {
     }
 
     // Define una función en entorno
-    public void defineFunction(String nombre, DefFuncion funcion) {
+    public void defineFunction(String nombre, FunctionDef funcion) {
         funciones.put(nombre, funcion);
     }
 
     // Obtiene definición de funcion
-    public DefFuncion getFuncion(String nombre) {
+    public FunctionDef getFuncion(String nombre) {
         if (funciones.containsKey(nombre)) {
             return funciones.get(nombre);
         } else if (parent != null) {

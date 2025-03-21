@@ -2,21 +2,42 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        //Creacion del entorno
+        Entorno globalEnv = new Entorno(null);
 
+        Scanner scanner = new Scanner(System.in);
 
-        // Expresión LISP de ejemplo
-        String input = "(+ 22 (* count 8))";
-        //1. Lexer
-        ArrayList<String> tokens = Lexer.Tokenizer(input); // solo tokenizer
-        System.out.println(tokens);//muestra resultado
+        while (true) {
+            System.out.print("LISP> ");
+            String input = scanner.nextLine().trim();
 
-        // 2. Parser
-        Node estructura = Parser.parse(tokens); //Parsea tokens
-        System.out.println("Estructura: " + estructura); //muestra resultado
+            // Salir si el usuario escribe "salir"
+            if (input.equalsIgnoreCase("salir")) {
+                System.out.println("Saliendo del intérprete LISP...");
+                break;
+            }
+
+            try {
+                // 1. Lexer: Tokenizar la entrada
+                ArrayList<String> tokens = Lexer.Tokenizer(input);
+                System.out.println("Tokens: " + tokens);
+
+                // 2. Parser: Parsear los tokens
+                Node estructura = Parser.parse(tokens);
+                System.out.println("Estructura: " + estructura);
+
+                // 3. Evaluar la expresión
+                Node resultado = Evaluador.eval(estructura, globalEnv);
+                System.out.println("Resultado: " + resultado);
+            } catch (Exception e) {
+                System.err.println("Error: " + e.getMessage());
+            }
+        }
 
     }
 }
