@@ -23,15 +23,13 @@ public class Main {
             }
 
             try {
-                // 1. Lexer: Tokenizar la entrada
+
                 ArrayList<String> tokens = Lexer.Tokenizer(input);
                 System.out.println("Tokens: " + tokens);
 
-                // 2. Parser: Parsear los tokens
                 Node estructura = Parser.parse(tokens);
                 System.out.println("Estructura: " + estructura);
 
-                // 3. Evaluar la expresión
                 Node resultado = Evaluador.eval(estructura, globalEnv);
                 System.out.println("Resultado: " + resultado);
             } catch (Exception e) {

@@ -60,19 +60,23 @@ public class Parser {
             // Inicia una nueva lista
             ListNode expression = new ListNode();
 
-            // procesa tokens y encuentra parentesis de cierre
+            // Procesa tokens hasta encontrar el paréntesis de cierre
             while (iterador.hasNext() && !iterador.peek().equals(")")) {
                 expression.add(parseExpression(iterador));
             }
 
             // Consume el paréntesis de cierre
-            iterador.next();
+            if (iterador.hasNext() && iterador.peek().equals(")")) {
+                iterador.next();  // Consume ")"
+            } else {
+                throw new IllegalArgumentException("Error: Falta paréntesis de cierre.");
+            }
+
             return expression;
         } else if (token.equals(")")) {
-
             throw new IllegalArgumentException("Error: Paréntesis de cierre inesperado.");
         } else {
-
+            // Es un átomo (número, variable, operador, etc.)
             return new AtomNode(token);
         }
     }

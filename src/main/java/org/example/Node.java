@@ -24,8 +24,14 @@ class AtomNode extends Node {
 }
 
 class ListNode extends Node {
-    private List<Node> elementos; // Sin final
+    private List<Node> elementos;
 
+    // Constructor que acepta una lista de elementos
+    public ListNode(List<Node> elementos) {
+        this.elementos = new ArrayList<>(elementos);  // Copia la lista para evitar modificaciones externas
+    }
+
+    // Constructor vacío (opcional, por si lo necesitas)
     public ListNode() {
         this.elementos = new ArrayList<>();
     }
