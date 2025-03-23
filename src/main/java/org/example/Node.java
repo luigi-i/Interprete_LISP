@@ -28,10 +28,10 @@ class ListNode extends Node {
 
     // Constructor que acepta una lista de elementos
     public ListNode(List<Node> elementos) {
-        this.elementos = new ArrayList<>(elementos);  // Copia la lista para evitar modificaciones externas
+        this.elementos = new ArrayList<>(elementos);  
     }
 
-    // Constructor vacío (opcional, por si lo necesitas)
+    // Constructor vacío
     public ListNode() {
         this.elementos = new ArrayList<>();
     }
